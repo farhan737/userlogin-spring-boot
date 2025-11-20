@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			registration page
+		</title>
+	</head>
+	<body>
+		<form method="post" th:action="@{/register}" th:object="${user}">
+			<input placeholder="first name" type="text" th:field="*{firstName}">
+			<input placeholder="last name" type="text" th:field="*{lastName}">
+			<input placeholder="email" type="email" th:field="*{email}">
+			<input placeholder="contact number" type="number" th:field="*{contactNumber}">
+			<input placeholder="password" type="password" th:field="*{password}"> 
+			<button type="submit">register</button>
+		</form>
+	</body>
+</html>
