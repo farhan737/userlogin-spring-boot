@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>dashboard page</title>
+	</head>
+	<body>
+		<h2>Welcome, <span th:text="${user.firstName}"></span>!</h2>
+		<form method="post" th:action="@{/logout}">
+			<button>logout</button>
+		</form>
+	</body>
+</html>

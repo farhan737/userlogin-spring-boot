@@ -7,7 +7,6 @@ import userlogin.model.User;
 import userlogin.repo.UserRepository;
 import userlogin.service.UserService;
 
-
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -24,8 +23,15 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean isAuthorised(User user) {
-		// TODO Auto-generated method stub
-		return false;
+		User dbUser = repo.findByEmail(user.getEmail());
+		if (dbUser == null)
+			return false;
+		return dbUser.getPassword().equals(user.getPassword());
+	}
+
+	@Override
+	public User findByEmail(String email) {
+		return repo.findByEmail(email);
 	}
 
 }

@@ -6,4 +6,6 @@ public interface UserService {
 	public boolean register(User user);
 	
 	public boolean isAuthorised(User user);
+	
+	public User findByEmail(String email);
 }

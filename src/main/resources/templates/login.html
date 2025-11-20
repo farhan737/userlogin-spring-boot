@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>login page</title>
+	</head>
+	<body>
+		<p>login page</p>
+		<div th:if="${status == 'invalidcredentials'}" style="color:red;">
+		    Invalid email or password. Please try again.
+		</div>
+
+		<div th:if="${status == 'logoutsuccessfull'}" style="color:green;">
+		    Logged out successfully.
+		</div>
+
+		<div th:if="${status == 'sessionexpired'}" style="color:orange;">
+		    the session has expired login again to continue
+		</div>
+
+		<form method="post" th:action="@{/login}" th:object="${user}">
+			<input placeholder="email" type="email" th:field="*{email}">
+			<input placeholder="password" type="password" th:field="*{password}">
+			<button type="submit">login</button>
+		</form>
+		<form method="get" th:action="@{/}">
+			<button>go back</button>
+		</form>
+	</body>
+</html>
